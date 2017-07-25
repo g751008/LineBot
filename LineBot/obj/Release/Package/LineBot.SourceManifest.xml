@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="I:\WebApplication1\WebApplication1\obj\Release\Package\PackageTmp" />
-  <setAcl path="I:\WebApplication1\WebApplication1\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="I:\WebApplication1\WebApplication1\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="I:\Git\LineBot\LineBot\obj\Release\Package\PackageTmp" />
+  <setAcl path="I:\Git\LineBot\LineBot\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="I:\Git\LineBot\LineBot\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>
