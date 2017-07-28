@@ -29,7 +29,17 @@ namespace WebApplication1.Controllers
                 //建立LineBot物件實體
                 isRock.LineBot.Bot LineBot = new isRock.LineBot.Bot(MyLineChannelAccessToken);
 
-                if ("hi".Equals(ReceivedMessage.events[0].message.text.ToLower()) || (ReceivedMessage.events.FirstOrDefault().type == "follow"))
+                if (ReceivedMessage.events.FirstOrDefault().type == "follow")
+                {
+                    var userInfo = LineBot.GetUserInfo(ReceivedMessage.events.FirstOrDefault().source.userId);
+                    LineBot.ReplyMessage(ReceivedMessage.events.FirstOrDefault().replyToken, $"'{userInfo.displayName}' 您好，歡迎！您的ID是'{ReceivedMessage.events.FirstOrDefault().replyToken}'");
+                }
+                else if ("id".Equals(ReceivedMessage.events[0].message.text.ToLower()))
+                {
+                        var userInfo = LineBot.GetUserInfo(ReceivedMessage.events.FirstOrDefault().source.userId);
+                        LineBot.ReplyMessage(ReceivedMessage.events.FirstOrDefault().replyToken, $"'{userInfo.displayName}' 您好！您的ID是'{ReceivedMessage.events.FirstOrDefault().replyToken}'");
+                }
+                else if ("hi".Equals(ReceivedMessage.events[0].message.text.ToLower()))
                 {
                     var userInfo = LineBot.GetUserInfo(ReceivedMessage.events.FirstOrDefault().source.userId);
                     LineBot.ReplyMessage(ReceivedMessage.events.FirstOrDefault().replyToken, $"哈，'{userInfo.displayName}' 你來了...歡迎");
@@ -37,7 +47,7 @@ namespace WebApplication1.Controllers
                 else if ("help".ToLower().Equals(ReceivedMessage.events[0].message.text.ToLower()))
                 {
                     //發送圖片訊息
-                    LineBot.PushMessage(MyUserid, "hi:打招呼\npic:秀圖片\nmenu:秀選單");
+                    LineBot.PushMessage(MyUserid, "id:查詢使用者ID\nhi:打招呼\npic:秀圖片\nmenu:秀選單");
                 }
                 else if ("pic".ToLower().Equals(ReceivedMessage.events[0].message.text.ToLower()))
                 {
